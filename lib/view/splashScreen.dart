@@ -2,6 +2,7 @@ import 'dart:async';
 import '../../theme/pallete.dart';
 import 'package:flutter/material.dart';
 
+import '../auth.dart';
 import 'login/login.dart';
 
 
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Timer(Duration(seconds: 6),  () => Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => login())));
+        context, MaterialPageRoute(builder: (context) => Auth())));
   }
 
   @override
