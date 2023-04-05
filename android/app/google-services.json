@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1002520993573",
+    "project_id": "mental-bridge",
+    "storage_bucket": "mental-bridge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1002520993573:android:c8488a7607c274860284cc",
+        "android_client_info": {
+          "package_name": "com.example.mentalbridge2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1002520993573-dicf44kesvprc8s7aooeb8i09u6nl9ip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpVNvVvccFnj_t5rsO5fkOIyNjpKZR9WM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1002520993573-dicf44kesvprc8s7aooeb8i09u6nl9ip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
