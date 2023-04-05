@@ -1,1 +1,1 @@
-const openAIAPIKey = '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';
+const openAIAPIKey = 'the api key you will find in the form under the github link';
