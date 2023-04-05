@@ -1,5 +1,7 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../../auth.dart';
 import '../../theme/pallete.dart';
 import '../layout/layout.dart';
 import '../login/login.dart';
@@ -29,12 +31,32 @@ class _SignUpState extends State<SignUp> {
   var emailController=TextEditingController();
 
   var passwordController=TextEditingController();
+  var confirmpasswordController=TextEditingController();
 
   var phoneController=TextEditingController();
 
   List<String> options = ['Doctor', 'Patient'];
 
   String? selectedOption;
+
+  Future signUp() async {
+    if(passwordController.text.trim()==confirmpasswordController.text.trim()){
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailController.text.trim(), password: passwordController.text.trim());
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => Auth(),
+          ));
+    }
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    confirmpasswordController.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -145,6 +167,7 @@ class _SignUpState extends State<SignUp> {
                           controller: passwordController,
                           cursorColor: black,
                           style: TextStyle(
+
                               fontSize: 17,
                               fontWeight: FontWeight.w500,
                               color: black),
@@ -191,7 +214,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         TextField(
                           obscureText: true,
-                          controller: passwordController,
+                          controller: confirmpasswordController,
                           cursorColor: black,
                           style: TextStyle(
                               fontSize: 17,
@@ -216,11 +239,12 @@ class _SignUpState extends State<SignUp> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Layout(),
-                          ));
+                      signUp();
+                      // Navigator.pushReplacement(
+                      //     context,
+                      //     MaterialPageRoute(
+                      //       builder: (context) => Layout(),
+                      //     ));
                     },
                     child: Container(
 
