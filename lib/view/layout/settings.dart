@@ -1,4 +1,6 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
+
 import '../../theme/pallete.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +10,7 @@ import 'EditScreen.dart';
 
 
 class Settings extends StatelessWidget {
-
+final user= FirebaseAuth.instance.currentUser!;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class Settings extends StatelessWidget {
             ),
             Center(
                 child: Text(
-                  'Nesma Alabyad',
+                  user.email!,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     letterSpacing: 1,
@@ -201,8 +203,7 @@ class Settings extends StatelessWidget {
               alignment: AlignmentDirectional.bottomCenter,
               child:InkWell(
                 onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context)=> login()));
+                  FirebaseAuth.instance.signOut();
                 },
                 child: Container(
                   width: double.infinity,
